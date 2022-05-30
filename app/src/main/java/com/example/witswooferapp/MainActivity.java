@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-// A commit
+// A commit8
         insFirebase = FirebaseAuth.getInstance();
 
         registerEmail = findViewById(R.id.registerEmail);
@@ -45,33 +45,39 @@ public class MainActivity extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = registerEmail.toString();
-                String password = passwordEmail.toString();
-
-                if(TextUtils.isEmpty(email)){
-                    registerEmail.setError("Email cannot be empty");
-                    registerEmail.requestFocus();
-                }else if(TextUtils.isEmpty(password)){
-                    passwordEmail.setError("Password cannot be empty");
-                    passwordEmail.requestFocus();
-                }else{
-                    insFirebase.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(MainActivity.this,"User registered successfully",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(MainActivity.this,Login.class));
-                            }else{
-                                Toast.makeText(MainActivity.this,"Registration Error: "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
-
-                            }
-                        }
-                    });
-                }
+                createUser();
             }
+
         });
 
 
+
+    }
+
+    private void createUser() {
+        String email = registerEmail.getText().toString();
+        String password = passwordEmail.getText().toString();
+
+        if(TextUtils.isEmpty(email)){
+            registerEmail.setError("Email cannot be empty");
+            registerEmail.requestFocus();
+        }else if(TextUtils.isEmpty(password)){
+            passwordEmail.setError("Password cannot be empty");
+            passwordEmail.requestFocus();
+        }else{
+            insFirebase.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(MainActivity.this,"User registered successfully",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this,Login.class));
+                    }else{
+                        Toast.makeText(MainActivity.this,"Registration Error: "+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+            });
+        }
 
     }
 }

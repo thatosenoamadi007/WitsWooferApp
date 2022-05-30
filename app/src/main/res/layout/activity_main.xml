@@ -14,6 +14,7 @@
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +48,9 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Password"
-        android:inputType="numberPassword"
-        app:layout_constraintTop_toBottomOf="@+id/registerEmail"
-        tools:layout_editor_absoluteX="101dp" />
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerEmail" />
 </androidx.constraintlayout.widget.ConstraintLayout>
