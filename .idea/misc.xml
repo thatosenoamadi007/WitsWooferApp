@@ -3,8 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1735" />
+        <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.1735" />
+        <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1735" />
+        <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/layout/activity_chat.xml" value="0.1" />
+        <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/layout/activity_cropper.xml" value="0.1" />
+        <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/layout/activity_home_page.xml" value="0.1921875" />
         <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/layout/activity_login.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/layout/image_rc.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1921875" />
         <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/menu/main_menu.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.33" />
       </map>
