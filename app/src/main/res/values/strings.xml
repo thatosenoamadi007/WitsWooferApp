@@ -3,4 +3,8 @@
     <string name="Profile">Profile</string>
     <string name="SignOut">Sign Out</string>
     <string name="Save">Save</string>
+    <string name="search">Search</string>
+    <string name="home">Home</string>
+    <string name="chat">Chat</string>
+    <string name="profile">Profile</string>
 </resources>

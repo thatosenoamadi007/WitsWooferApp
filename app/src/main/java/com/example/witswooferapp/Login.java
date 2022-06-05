@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,9 +21,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.Objects;
 
 public class Login extends AppCompatActivity {
-    private TextView Email, Password;
+    private EditText Email, Password;
     private Button signIn;
     private FirebaseAuth authInst;
+    private TextView goToSignUpTV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +34,20 @@ public class Login extends AppCompatActivity {
         Email = findViewById(R.id.signInEmail);
         Password = findViewById(R.id.signInPassword);
         signIn = findViewById(R.id.signInBtn);
+        goToSignUpTV = findViewById(R.id.goToSignUpTV);
         authInst = FirebaseAuth.getInstance();
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 logInUser();
+            }
+        });
+
+        goToSignUpTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Login.this,MainActivity.class));
             }
         });
 

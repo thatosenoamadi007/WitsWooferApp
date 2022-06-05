@@ -45,6 +45,10 @@ public class HomePage extends AppCompatActivity {
                     startActivity(new Intent(HomePage.this, chat.class));
                     overridePendingTransition(0, 0);
                     return true;
+                case R.id.search:
+                    startActivity(new Intent(HomePage.this, SearchUserActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
             }
             return false;
         });

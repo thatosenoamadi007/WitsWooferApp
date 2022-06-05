@@ -16,12 +16,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WitsWooferApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".SearchUserActivity"
+            android:exported="false" />
         <activity
             android:name=".chat"
             android:exported="false" />
         <activity
             android:name=".profile"
+            android:exported="false"/>
+
+
+        <activity
+            android:name=".HomePage"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,19 +40,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomePage"
-            android:exported="false" />
-        <activity
-            android:name=".Login"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
-            android:exported="false">
-
-        </activity>
-
-
-
+            android:exported="false" />
     </application>
 
 </manifest>

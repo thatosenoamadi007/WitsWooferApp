@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -50,7 +51,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class profile extends AppCompatActivity {
     private CircleImageView circleImageView;
-    private EditText username,postCaption;
+    private TextView username, degree;
+    private EditText postCaption;
     private Button saveBtn, postBtn, deleteBtn;
     private ImageView addPost;
     private FirebaseAuth auth;
@@ -83,6 +85,11 @@ public class profile extends AppCompatActivity {
                     startActivity(new Intent(profile.this, chat.class));
                     overridePendingTransition(0, 0);
                     return true;
+                case R.id.search:
+                    startActivity(new Intent(profile.this, SearchUserActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+
             }
             return false;
         });
@@ -103,6 +110,7 @@ public class profile extends AppCompatActivity {
         recyclerView.setItemAnimator(null);
 
         setProfile();
+
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
