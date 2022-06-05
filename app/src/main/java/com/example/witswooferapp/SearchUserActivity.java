@@ -14,12 +14,16 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SearchUserActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
+    private FirebaseAuth firebaseAuth;
+    private RecyclerView recyclerView;
+    private searchAdapter mainAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_user);
 
+        firebaseAuth = FirebaseAuth.getInstance();
 
         bottomNavigationView=findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.search);
@@ -43,9 +47,27 @@ public class SearchUserActivity extends AppCompatActivity {
             return false;
         });
 
+        recyclerView = (RecyclerView)findViewById(R.id.recyclerViewAllUsers);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        FirebaseRecyclerOptions<friendModel> options =
+                new FirebaseRecyclerOptions.Builder<friendModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Users"), friendModel.class)//.orderByChild("modName").equalTo("APHY8010")
+                        .build();
+        recyclerView.getRecycledViewPool().clear();
+        mainAdapter = new searchAdapter(options);
+        recyclerView.setAdapter(mainAdapter);
 
-
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mainAdapter.startListening();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mainAdapter.stopListening();
     }
 
 

@@ -127,8 +127,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+        String randomKey = UUID.randomUUID().toString();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(randomKey);
         friendModel friend = new friendModel(email, degree);
         databaseReference.setValue(friend);
 

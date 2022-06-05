@@ -20,7 +20,11 @@
         <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/layout/userlayout.xml" value="0.5" />
         <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.8148148148148148" />
         <entry key="..\:/Users/thato/Desktop/WitsWooferApp/app/src/main/res/menu/main_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/drawable/addpost.xml" value="0.1215" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_search_user.xml" value="0.21422101449275363" />
+        <entry key="app/src/main/res/layout/image_rc.xml" value="0.2625" />
+        <entry key="app/src/main/res/layout/userlayout.xml" value="0.67" />
       </map>
     </option>
   </component>
