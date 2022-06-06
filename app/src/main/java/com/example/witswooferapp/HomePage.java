@@ -14,10 +14,7 @@ import android.view.MenuItem;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.UUID;
 
 public class HomePage extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
@@ -42,10 +39,6 @@ public class HomePage extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 case R.id.home:
-                    return true;
-                case R.id.chat:
-                    startActivity(new Intent(HomePage.this, chat.class));
-                    overridePendingTransition(0, 0);
                     return true;
                 case R.id.search:
                     startActivity(new Intent(HomePage.this, SearchUserActivity.class));

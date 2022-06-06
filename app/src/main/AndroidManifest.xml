@@ -17,22 +17,23 @@
         android:theme="@style/Theme.WitsWooferApp"
         tools:targetApi="31">
         <activity
+            android:name=".commonFriends"
+            android:exported="false" />
+        <activity
+            android:name=".my_Friends_Activity"
+            android:exported="false" />
+        <activity
             android:name=".SearchUserActivity"
             android:exported="false" />
         <activity
-            android:name=".chat"
-            android:exported="false" />
-        <activity
             android:name=".profile"
-            android:exported="false"/>
-
-
+            android:exported="false" />
         <activity
             android:name=".HomePage"
             android:exported="false" />
         <activity
             android:name=".Login"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

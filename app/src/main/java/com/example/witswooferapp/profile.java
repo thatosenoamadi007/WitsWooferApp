@@ -9,11 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,24 +24,17 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.StreamDownloadTask;
 import com.google.firebase.storage.UploadTask;
 //import com.google.firebase.storage.FirebaseStorage;
 //import com.google.firebase.storage.StorageReference;
 //import com.google.firebase.storage.StorageTask;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.UUID;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -53,7 +43,7 @@ public class profile extends AppCompatActivity {
     private CircleImageView circleImageView;
     private TextView username, degree;
     private EditText postCaption;
-    private Button saveBtn, postBtn, deleteBtn;
+    private Button saveBtn, postBtn, deleteBtn, listFriends;
     private ImageView addPost;
     private FirebaseAuth auth;
     BottomNavigationView bottomNavigationView;
@@ -81,10 +71,6 @@ public class profile extends AppCompatActivity {
                     startActivity(new Intent(profile.this, HomePage.class));
                     overridePendingTransition(0, 0);
                     return true;
-                case R.id.chat:
-                    startActivity(new Intent(profile.this, chat.class));
-                    overridePendingTransition(0, 0);
-                    return true;
                 case R.id.search:
                     startActivity(new Intent(profile.this, SearchUserActivity.class));
                     overridePendingTransition(0, 0);
@@ -106,10 +92,19 @@ public class profile extends AppCompatActivity {
         recyclerView = (RecyclerView)findViewById(R.id.myPostRecyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         postCaption = findViewById(R.id.postCaption);
+        listFriends = findViewById(R.id.listFriends);
 
         recyclerView.setItemAnimator(null);
 
         setProfile();
+
+        listFriends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(profile.this, my_Friends_Activity.class);
+                startActivity(intent);
+            }
+        });
 
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override

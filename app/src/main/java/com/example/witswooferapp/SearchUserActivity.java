@@ -33,10 +33,6 @@ public class SearchUserActivity extends AppCompatActivity {
                     startActivity(new Intent(SearchUserActivity.this, profile.class));
                     overridePendingTransition(0, 0);
                     return true;
-                case R.id.chat:
-                    startActivity(new Intent(SearchUserActivity.this, chat.class));
-                    overridePendingTransition(0, 0);
-                    return true;
                 case R.id.home:
                     startActivity(new Intent(SearchUserActivity.this, HomePage.class));
                     overridePendingTransition(0, 0);
@@ -55,7 +51,7 @@ public class SearchUserActivity extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Users"), friendModel.class)//.orderByChild("modName").equalTo("APHY8010")
                         .build();
         recyclerView.getRecycledViewPool().clear();
-        mainAdapter = new searchAdapter(options);
+        mainAdapter = new searchAdapter(options,getApplicationContext());
         recyclerView.setAdapter(mainAdapter);
 
     }

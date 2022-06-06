@@ -21,7 +21,7 @@
             android:padding="15dp">
 
             <ImageView
-                android:id="@+id/userProfileView"
+                android:id="@+id/commonFriendProfilePicView"
                 android:layout_width="100dp"
                 android:layout_height="78dp"
                 android:layout_alignParentStart="true"
@@ -31,7 +31,7 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/usernameView"
+                android:id="@+id/commonFriendUsernameView"
                 android:layout_width="248dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -39,53 +39,43 @@
                 android:layout_marginStart="9dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="10dp"
-                android:layout_toEndOf="@+id/userProfileView"
+                android:layout_toEndOf="@+id/commonFriendProfilePicView"
                 android:hint="Email"
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/degreeView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/usernameView"
+                android:id="@+id/commonFrienddegreeView"
+                android:layout_width="243dp"
+                android:layout_height="14dp"
+                android:layout_below="@+id/commonFriendUsernameView"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="11dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="13dp"
-                android:layout_toEndOf="@+id/userProfileView"
+                android:layout_toEndOf="@+id/commonFriendProfilePicView"
                 android:hint="Degree"
                 android:textSize="10sp" />
 
             <ImageView
-                android:id="@+id/addFriendView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_below="@+id/degreeView"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/userProfileView"
+                android:id="@+id/addCommonFriendView"
+                android:layout_width="53dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/commonFrienddegreeView"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/commonFriendProfilePicView"
                 app:srcCompat="@drawable/addperson" />
 
             <ImageView
-                android:id="@+id/commonFriend"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_below="@+id/degreeView"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/addFriendView"
-                app:srcCompat="@drawable/common" />
-
-            <ImageView
-                android:id="@+id/profileView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_below="@+id/degreeView"
+                android:id="@+id/commonFriendprofileView"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/commonFrienddegreeView"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_toEndOf="@+id/commonFriend"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="50dp"
+                android:layout_toEndOf="@+id/addCommonFriendView"
                 app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
         </RelativeLayout>
