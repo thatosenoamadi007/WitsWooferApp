@@ -3,6 +3,8 @@ package com.example.witswooferapp;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -31,6 +33,9 @@ public class commonFriends extends AppCompatActivity {
         final String email1=FirebaseAuth.getInstance().getCurrentUser().getEmail();
         final String myemail=email1.replace("@gmail.com","");
         //List<friendModel> myfriend = new ArrayList<>();
+
+        List<friendModel> common;
+
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference friendRef = rootRef.child("MyFriends").child(myemail);
         ValueEventListener valueEventListener = new ValueEventListener() {
@@ -59,8 +64,7 @@ public class commonFriends extends AppCompatActivity {
                         }
                         if(!myfriend1.isEmpty()){
 
-
-                            List<friendModel> commonfriends = new ArrayList<>();
+                            ArrayList<friendModel> commonfriends = new ArrayList<>();
                             for (friendModel first : myfriend){
                                 for(friendModel second:myfriend1){
                                     if(first.getEmail().equals(second.getEmail())){
@@ -69,10 +73,16 @@ public class commonFriends extends AppCompatActivity {
                                 }
                             }
 
+                            RecyclerView recyclerView = findViewById(R.id.commonFriendsRecyclerView);
+                            commonFriendsAdapter adapter = new commonFriendsAdapter(commonFriends.this, commonfriends);
+                            recyclerView.setAdapter(adapter);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(commonFriends.this));
+
                         }
 
-                    }
 
+
+                    }
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {}
                 };
