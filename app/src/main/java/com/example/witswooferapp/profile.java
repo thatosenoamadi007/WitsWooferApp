@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -52,6 +53,8 @@ public class profile extends AppCompatActivity {
     private StorageReference storageRef;
     private RecyclerView recyclerView;
     private myPostAdapter mainAdapter;
+    String email;
+    String degreeS;
 
 
 
@@ -88,7 +91,6 @@ public class profile extends AppCompatActivity {
         storageRef=storage.getReference();
         addPost = findViewById(R.id.addPost);
         postBtn = findViewById(R.id.postBtn);
-        deleteBtn = findViewById(R.id.deleteBtn);
         recyclerView = (RecyclerView)findViewById(R.id.myPostRecyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         postCaption = findViewById(R.id.postCaption);
@@ -129,7 +131,39 @@ public class profile extends AppCompatActivity {
         mainAdapter = new myPostAdapter(options);
         recyclerView.setAdapter(mainAdapter);
 
+       getProfile();
 
+    }
+
+
+
+    private void getProfile(){FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user!=null){
+            email = user.getEmail();
+            username.setText(email);
+            degreeS= user.getDisplayName();
+
+        }
+        /*FirebaseDatabase.getInstance().getReference()
+                .child("Users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        friendModel friend=snapshot.getValue(friendModel.class);
+
+                        email=friend.getEmail();
+                        degreeS=friend.getDegree();
+
+                        username.setText(email);
+                        degree.setText(degreeS);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(profile.this,"Couldnt retrieve user information.",Toast.LENGTH_SHORT).show();
+                    }
+                });*/
     }
 
 
@@ -162,7 +196,12 @@ public class profile extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         mainAdapter.startListening();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user==null){
+            startActivity(new Intent(profile.this,Login.class));
+        }
     }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -232,7 +271,8 @@ public class profile extends AppCompatActivity {
                             Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                             while (!uriTask.isComplete()) ;
                             Uri uri = uriTask.getResult();
-                            Post post=new Post(uri.toString(),postCaption.getText().toString());
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            Post post=new Post(uri.toString(),postCaption.getText().toString(),user.getEmail());
                             FirebaseDatabase.getInstance().getReference("Posts")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid().toString())
                                     .child(randomKey)

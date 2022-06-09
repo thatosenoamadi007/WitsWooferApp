@@ -63,13 +63,15 @@ public class searchAdapter extends FirebaseRecyclerAdapter<friendModel, com.exam
         }
         final String email1=FirebaseAuth.getInstance().getCurrentUser().getEmail();
          final String email=email1.replace("@gmail.com","");
+        final String friendsEmail=friend.getEmail();
+        final String addFriend=friendsEmail.replace("@gmail.com","");
         holder.addFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                final  String randomKey= UUID.randomUUID().toString();
 
-                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("MyFriends").child(email).child(randomKey);
+
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("MyFriends").child(email).child(addFriend);
                 friendModel friend1 = new friendModel(friend.getEmail(),friend.getDegree());//Adding the quiz question to the database
                 databaseReference.setValue(friend1);
             }
@@ -86,17 +88,7 @@ public class searchAdapter extends FirebaseRecyclerAdapter<friendModel, com.exam
             }
         });
 
-        holder.viewProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent intent = new Intent(context, profile.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("email",holder.email.getText().toString());
-                intent.putExtra("degree",holder.Degree.getText().toString());
-                context.startActivity(intent);
-            }
-        });
 
     }
 
@@ -117,7 +109,7 @@ public class searchAdapter extends FirebaseRecyclerAdapter<friendModel, com.exam
             imageView=(ImageView)itemView.findViewById(R.id.userProfileView);
             addFriend=(ImageView)itemView.findViewById(R.id.addFriendView);
             commonFriend=(ImageView)itemView.findViewById(R.id.commonFriend);
-            viewProfile=(ImageView)itemView.findViewById(R.id.profileView);
+
         }
     }
 }

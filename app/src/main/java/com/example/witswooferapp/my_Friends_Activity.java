@@ -24,10 +24,11 @@ public class my_Friends_Activity extends AppCompatActivity {
 
         recyclerView = (RecyclerView)findViewById(R.id.myFriendsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        final String email1=FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        final String myemail=email1.replace("@gmail.com","");
         FirebaseRecyclerOptions<friendModel> options =
                 new FirebaseRecyclerOptions.Builder<friendModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("MyFriends").child(FirebaseAuth.getInstance().getCurrentUser().getEmail()), friendModel.class)//.orderByChild("modName").equalTo("APHY8010")
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("MyFriends").child(myemail), friendModel.class)//.orderByChild("modName").equalTo("APHY8010")
                         .build();
         recyclerView.getRecycledViewPool().clear();
         mainAdapter = new myFriendAdapter(options);

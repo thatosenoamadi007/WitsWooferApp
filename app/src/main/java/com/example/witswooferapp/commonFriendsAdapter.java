@@ -76,8 +76,6 @@ public class commonFriendsAdapter extends RecyclerView.Adapter<commonFriendsAdap
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             profilePic = itemView.findViewById(R.id.commonFriendProfilePicView);
-            addFriend = itemView.findViewById(R.id.addCommonFriendView);
-            goToProfile = itemView.findViewById(R.id.commonFriendprofileView);
             Email = itemView.findViewById(R.id.commonFriendUsernameView);
             Degree = itemView.findViewById(R.id.commonFrienddegreeView);
 

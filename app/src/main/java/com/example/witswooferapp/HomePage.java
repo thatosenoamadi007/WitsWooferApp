@@ -53,7 +53,7 @@ public class HomePage extends AppCompatActivity {
 
         FirebaseRecyclerOptions<Post> options =
                 new FirebaseRecyclerOptions.Builder<Post>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("AllPosts"), Post.class)//.orderByChild("modName").equalTo("APHY8010")
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("AllPosts"), Post.class)
                         .build();
         recyclerView.getRecycledViewPool().clear();
         mainAdapter = new myPostAdapter(options);

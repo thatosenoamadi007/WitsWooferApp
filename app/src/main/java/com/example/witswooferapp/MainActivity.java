@@ -30,6 +30,7 @@ import com.google.firebase.storage.UploadTask;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
+    //initilise variables
     private EditText registerEmail, passwordEmail, registerDegree;
     private Button signUp;
     private TextView tvMessage;
@@ -41,9 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.white));
-// A commit8
         insFirebase = FirebaseAuth.getInstance();
-
         registerEmail = findViewById(R.id.registerEmail);
         passwordEmail = findViewById(R.id.registerPassword);
         registerDegree = findViewById(R.id.registerDegree);
@@ -111,11 +110,14 @@ public class MainActivity extends AppCompatActivity {
         }else if(TextUtils.isEmpty(password)){
             passwordEmail.setError("Password cannot be empty");
             passwordEmail.requestFocus();
-        }else{
+        }else {
             insFirebase.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                        friendModel friend = new friendModel(email, degree);
+                        databaseReference.setValue(friend);
                         Toast.makeText(MainActivity.this,"User registered successfully",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(MainActivity.this,Login.class));
                     }else{
@@ -124,13 +126,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
-
-
         }
-        String randomKey = UUID.randomUUID().toString();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(randomKey);
-        friendModel friend = new friendModel(email, degree);
-        databaseReference.setValue(friend);
+
+
 
 
     }

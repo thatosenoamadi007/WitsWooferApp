@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/registerEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="215dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Email"
+        android:background="@drawable/edit_text_border"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerDegree" />
 
@@ -34,11 +35,12 @@
 
     <EditText
         android:id="@+id/registerPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="215dp"
+        android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Password"
+        android:background="@drawable/edit_text_border"
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,9 +50,10 @@
 
     <Button
         android:id="@+id/registerBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="239dp"
+        android:layout_height="50dp"
         android:layout_marginTop="12dp"
+        android:backgroundTint="@color/black"
         android:text="Sign Up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -59,24 +62,26 @@
 
     <EditText
         android:id="@+id/registerDegree"
-        android:layout_width="214dp"
-        android:layout_height="46dp"
+        android:layout_width="215dp"
+        android:layout_height="45dp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_border"
         android:hint="Degree of Study"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerProfilePic" />
 
     <ImageView
         android:id="@+id/registerProfilePic"
-        android:layout_width="227dp"
-        android:layout_height="121dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+        app:srcCompat="@drawable/icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

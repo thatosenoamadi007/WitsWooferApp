@@ -38,7 +38,7 @@ public class myPostAdapter extends FirebaseRecyclerAdapter<Post, myPostAdapter.m
                     .placeholder(R.drawable.ic_baseline_account_circle_24)
                     .error(R.drawable.ic_baseline_home_24)
                     .into(holder.post);
-
+            holder.profileName.setText(post.getUsername());
             holder.caption.setText(post.getCaption());
 
     }
@@ -51,11 +51,12 @@ public class myPostAdapter extends FirebaseRecyclerAdapter<Post, myPostAdapter.m
     }
 
     class myViewHolder extends RecyclerView.ViewHolder{
-        TextView caption;
+        TextView caption, profileName;
         ImageView post;
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             caption = (TextView)itemView.findViewById(R.id.caption);
+            profileName = (TextView)itemView.findViewById(R.id.profileName);
             post=(ImageView)itemView.findViewById(R.id.post);
         }
     }

@@ -58,35 +58,23 @@
 
             <ImageView
                 android:id="@+id/addFriendView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/degreeView"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="63dp"
+                android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/userProfileView"
                 app:srcCompat="@drawable/addperson" />
 
             <ImageView
                 android:id="@+id/commonFriend"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="56dp"
+                android:layout_height="22dp"
                 android:layout_below="@+id/degreeView"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="11dp"
                 android:layout_toEndOf="@+id/addFriendView"
                 app:srcCompat="@drawable/common" />
-
-            <ImageView
-                android:id="@+id/profileView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_below="@+id/degreeView"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_toEndOf="@+id/commonFriend"
-                app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
         </RelativeLayout>
 
